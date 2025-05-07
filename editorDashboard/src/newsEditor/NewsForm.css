@@ -1,78 +1,315 @@
-/* NewsForm.css */
-.news-form-container {
-    max-width: 800px;
-    margin: 30px auto;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 30px;
+/* Reset all margin and padding */
+* {
+    box-sizing: border-box;
 }
 
-.news-form-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333333;
-    text-align: center;
+/* Main container that centers everything */
+.centered-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100vw !important;
+    min-height: 100vh !important;
+    padding: 20px !important;
+    background-color: #f0f0f0 !important;
 }
 
+/* Form wrapper */
+.news-form-wrapper {
+    width: 100% !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+    background: white !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+
+/* News form */
 .news-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 100% !important;
+    padding: 40px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
+/* Title */
+.news-form-title {
+    font-size: 28px !important;
+    font-weight: bold !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* Editor container */
+.editor-container {
+    width: 100% !important;
+    margin-bottom: 40px !important;
+    /* Increased margin to prevent overlap */
+    position: relative !important;
+    /* Add position relative */
+}
+
+/* ReactQuill editor */
 .news-editor {
-    height: 250px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 16px;
-    color: #333;
-    background-color: #f9f9f9;
+    height: 300px !important;
+    width: 100% !important;
 }
 
-.news-editor .ql-container {
-    border-radius: 8px;
-    background-color: #fff;
+/* Override ReactQuill styles */
+.ql-container {
+    width: 100% !important;
+    margin: 0 auto !important;
 }
 
+.ql-editor {
+    width: 100% !important;
+    text-align: left !important;
+}
+
+/* Fixed height for toolbar */
+.ql-toolbar {
+    width: 100% !important;
+}
+
+/* Upload section */
 .image-upload {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    /* Add more space at the top */
+    position: relative !important;
+    /* Add position relative */
+    z-index: 10 !important;
+    /* Ensure it's above other elements */
 }
 
-.image-upload input[type="file"] {
-    margin-bottom: 15px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    cursor: pointer;
+.file-input {
+    display: none !important;
 }
 
+.file-input-label {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: 0.3s ease !important;
+    text-align: center !important;
+    display: inline-block !important;
+    /* Ensure it's a block element */
+    z-index: 20 !important;
+    /* Higher z-index */
+    position: relative !important;
+    /* Add position */
+}
+
+.file-input-label:hover {
+    background-color: #388e3c !important;
+}
+
+/* Preview container */
+.preview-container {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+/* Image preview */
 .image-preview {
-    max-width: 100%;
-    max-height: 200px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
+/* Submit button */
 .submit-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #4CAF50 !important;
+    color: white !important;
+    padding: 12px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    /* Add more space at the top */
+    transition: background-color 0.3s ease !important;
 }
 
 .submit-button:hover {
-    background-color: #45a049;
+    background-color: #388e3c !important;
 }
 
-.submit-button:focus {
-    outline: none;
+.submit-button:disabled {
+    background-color: #cccccc !important;
+    cursor: not-allowed !important;
+    opacity: 0.7 !important;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 1000 !important;
+}
+
+.loader {
+    border: 5px solid #f3f3f3 !important;
+    border-radius: 50% !important;
+    border-top: 5px solid #4CAF50 !important;
+    width: 50px !important;
+    height: 50px !important;
+    animation: spin 2s linear infinite !important;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Notification popup */
+.notification-popup {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    min-width: 300px !important;
+    padding: 15px 20px !important;
+    border-radius: 5px !important;
+    color: white !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    z-index: 1001 !important;
+    animation: slideIn 0.3s ease-out !important;
+}
+
+.notification-popup.success {
+    background-color: #4CAF50 !important;
+}
+
+.notification-popup.error {
+    background-color: #f44336 !important;
+}
+
+.close-notification {
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    margin-left: 10px !important;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Confirmation dialog */
+.confirmation-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 1000 !important;
+}
+
+.confirmation-dialog {
+    background-color: white !important;
+    border-radius: 8px !important;
+    padding: 25px !important;
+    width: 90% !important;
+    max-width: 400px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.confirmation-dialog h3 {
+    margin-top: 0 !important;
+    color: #333 !important;
+}
+
+.confirmation-buttons {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-top: 20px !important;
+    gap: 10px !important;
+}
+
+.cancel-button {
+    background-color: #f5f5f5 !important;
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+    padding: 8px 16px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.cancel-button:hover {
+    background-color: #e0e0e0 !important;
+}
+
+.confirm-button {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.confirm-button:hover {
+    background-color: #388e3c !important;
+}
+
+/* Fix for ReactQuill to ensure it doesn't overlap with other elements */
+.quill {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    /* Allow height to adjust */
+    min-height: 300px !important;
+    margin-bottom: 20px !important;
+}
+
+/* Ensure space after ReactQuill */
+.news-form>.editor-container+.image-upload {
+    margin-top: 30px !important;
 }
