@@ -1,61 +1,32 @@
-#root {
-  width: 100vw !important;
-  /* Force full viewport width */
-  max-width: none !important;
-  /* Override any max-width */
-  margin: 0 !important;
-  /* Remove any margins */
-  padding: 0 !important;
-  /* Remove any padding */
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  min-height: 100vh !important;
-  box-sizing: border-box !important;
+/* App Container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
 }
 
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  overflow-x: hidden !important;
+/* App Content */
+.app-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive layout */
+@media (max-width: 992px) {
+  .app-content {
+    flex-direction: column;
+    align-items: center;
   }
 
-  to {
-    transform: rotate(360deg);
+  .news-list-container {
+    max-width: 700px;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

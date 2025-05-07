@@ -46,7 +46,7 @@
 /* Editor container */
 .editor-container {
     width: 100% !important;
-    margin-bottom: 40px !important;
+    margin-bottom: 20px !important;
     /* Increased margin to prevent overlap */
     position: relative !important;
     /* Add position relative */
@@ -54,7 +54,7 @@
 
 /* ReactQuill editor */
 .news-editor {
-    height: 300px !important;
+    height: 500px !important;
     width: 100% !important;
 }
 
@@ -306,7 +306,7 @@
     height: auto !important;
     /* Allow height to adjust */
     min-height: 300px !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 1px !important;
 }
 
 /* Ensure space after ReactQuill */
