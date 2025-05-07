@@ -133,6 +133,11 @@ const NewsForm: React.FC = () => {
         setNews("");
         setImage(null);
         setPreview(null);
+        
+        // Reload the page to refresh the news list
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       } else {
         showNotificationMessage(`Server error: ${text}`, "error");
       }
