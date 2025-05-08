@@ -1,46 +1,40 @@
-import React from 'react';
-import NewsForm from './newsEditor/NewsForm';
+import React, { useState } from 'react';
 import NewsList from './newsEditor/NewsList';
+import Sidebar from './Components/Sidebar';
+import FormRenderer from './Components/FormRendered';
 import './App.css';
 import Navbar from './navbar/Navbar';
 
 const App: React.FC = () => {
-  const sidebarItems = [
-    "News",
-    "Events",
-    "Deadlines",
-    "Colleges",
-    "Courses",
-    "Exams",
-    "Form Filling",
-    "Stress Management",
-    "Time Management",
-    "Mental Wellness",
-    "Personal Growth"
-  ];
+  const [activeForm, setActiveForm] = useState('News');
 
   return (
-
     <div className="app-wrapper">
       <Navbar />
-    <div className="app-container">
-      <div className="app-content">
-        <NewsList />
 
-        <div className="form-and-sidebar">
-          <NewsForm />
-          
-          <div className="sidebar-wrapper">
-  <div className="sidebar-cards">
-    {sidebarItems.map(item => (
-      <div key={item} className="sidebar-card">{item}</div>
-    ))}
-  </div>
-</div>
+      <div className="app-container">
+        <div className="app-content">
 
+          {/* ✅ Wrap NewsList properly to apply CSS */}
+          <div className="news-list-container">
+            <NewsList />
+          </div>
+
+          {/* Form + Sidebar wrapper */}
+          <div className="form-and-sidebar">
+
+            {/* ✅ Make sure this has flex: 1 */}
+            <div className="news-form-wrapper">
+              <FormRenderer activeForm={activeForm} />
+            </div>
+
+            {/* ✅ Sidebar in scrollable container */}
+            <div className="sidebar-wrapper">
+              <Sidebar activeForm={activeForm} setActiveForm={setActiveForm} />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };
